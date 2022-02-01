@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pagina web de blog de cafe">
+    <meta name="keywords" content="Cafe , blog , cursos ,"/>
     <title>BlogDeCafe</title>
+    <!--Prefetch se utiliza para cargar una pagina que creamos que los usuarios visitaran mas, para que cargue mas rapido la pagina,google anality para ver en que pagina los usuarios pasan mas tiempo-->
+    <link rel="prefetch" href="nosotros.html" as="document">
+    <!--Preload son los elementos que crea necesario que carguen inmediatamente en mi pagina web ,esto mejora la performance-->
+    <link rel="preload" href="css/normalize.css" as="style">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+    crossorigin="crossorigin" as="font"><!--a las fuentes se le agrega el crossorigin="crossorigin" y en as="font"-->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -38,7 +47,10 @@
 
                 <article class="entrada">
                     <div class="entrada__imagen">
-                        <img src="img/blog1.jpg" alt="imagen blog">
+                        <picture><!--para aplicar el formato de img webp,como no en todos los navegadores tiene soporte, se agrega la etiquete <picture> y adentro la etiqueta <source> y ahi se carga la imagen en formato .webp, y abajo la etiqueta <img en formato jpg,esto hara que si primero no soporta el formato webp utilizara el jpg,el formato webp da un mejor performance porque optimiza las imagenes-->
+                            <source loading="lazy" srcset="img/blog1.webp" type="image/webp">
+                            <img src="img/blog1.jpg" alt="imagen blog" loading="lazy"> <!--loading="lazy" agregar este atributo es para que las imagenes se descarguen recien cuando lleguen a esa seccion,para no recargar el servidor(mejora la performance)-->
+                        </picture>
                     </div>
 
                     <div class="entrada__contenido">
@@ -52,7 +64,10 @@
 
                 <article class="entrada">
                     <div class="entrada__imagen">
-                        <img src="img/blog2.jpg" alt="imagen blog">
+                        <picture>
+                            <source loading="lazy" srcset="img/blog2.webp" type="image/webp">
+                            <img src="img/blog2.jpg" alt="imagen blog" loading="lazy"> <!--loading="lazy" agregar este atributo es para que las imagenes se descarguen recien cuando lleguen a esa seccion,para no recargar el servidor(mejora la performance)-->
+                        </picture>
                     </div>
                     
                     <div class="entrada__contenido">
@@ -66,7 +81,10 @@
 
                 <article class="entrada">
                     <div class="entrada__imagen">
-                        <img src="img/blog3.jpg" alt="imagen blog">
+                        <picture>
+                            <source loading="lazy" srcset="img/blog3.webp" type="image/webp">
+                            <img src="img/blog3.jpg" alt="imagen blog" loading="lazy"> <!--loading="lazy" agregar este atributo es para que las imagenes se descarguen recien cuando lleguen a esa seccion,para no recargar el servidor(mejora la performance)-->
+                        </picture>
                     </div>
                     
                     <div class="entrada__contenido">
@@ -89,7 +107,7 @@
                         <p class="witget-curso__label">Cupo:
                             <span class="witget-curso__info">20</span>
                         </p>
-                        <a href="entrada.html" class="boton boton--segundario">Leer Entrada</a>
+                        <a href="entrada.html" class="boton boton--segundario">Mas informacion de este curso</a>
                     </li>
                     
                     <li class="widget-curso">
@@ -100,7 +118,7 @@
                         <p class="witget-curso__label">Cupo:
                             <span class="witget-curso__info">20</span>
                         </p>
-                        <a href="entrada.html" class="boton boton--segundario">Leer Entrada</a>
+                        <a href="entrada.html" class="boton boton--segundario">Mas informacion de este curso</a>
                     </li>
                 </ul>
             </aside>
@@ -123,6 +141,6 @@
 
         </footer>
 
-    </header>
+    <script src="js/modernizr.js"></script>
 </body>
 </html>
