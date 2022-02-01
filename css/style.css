@@ -127,6 +127,8 @@ img{
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 2rem;
+    border: none;
+    
 
 }
 @media (min-width: 768px){
@@ -134,7 +136,9 @@ img{
         display: inline-block;
     }
 }
-
+.boton:hover{
+    cursor:pointer;
+}
 .boton--primario{
     background-color: var(--negro);
 }
@@ -173,13 +177,78 @@ img{
     .sobre-nosotros{
         display: flex;
         gap: 2rem;
+        /*justify-content: space-between;  esto utilizamos si no usariamos el gap*****/
     }
     .sobre-nosotros__imagen, .sobre-nosotros__texto{
         flex-basis: 50%;
+        /*flex-basis: (50% - 1rem ); seria el 50% + el 1rem de separacion que queremos ,este se usa si no usariamos el gap ,mas els justifi de arriba*****/
     }
-    .sobre-nosotros{
+    /*.sobre-nosotros{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         column-gap: 2rem;
+    }*/ /*esto hace lo mismo que el flex solo que con grid */
+}
+
+/**Cursos**/
+.curso{
+    padding: 3rem;
+    border-bottom: 1px solid var(--gris);
+}
+@media (min-width: 768px){
+    .curso{
+        display: grid;
+        grid-template-columns: 1fr 2fr ;
+        column-gap: 2rem;
     }
 }
+.curso:last-of-type{
+    border: none;
+}
+.curso:last-of-type{ /**esto es para que el ultimo curso siempre no tenga el borde gris **/
+    border:none;
+    margin-bottom: 0;
+}
+.curso__label{
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+.curso__info{
+    font-weight: 400;
+}
+.curso__info, .curso__label{
+    font-size: 2rem;
+}
+
+/**Contacto**/
+.contacto-bg{
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.formulario{
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;/** el margin en negativo va a ir a hacia arriba en vez de para abajo**/
+    width: 95%;
+    padding: 5rem;
+}
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+    /*gap: 2rem; Esto es lo mismo que poner padding-right de abajo,pero por soporte */
+}
+.campo__label{
+    flex: 0 0 9rem; /** el primer 0 es que no tiene factor de crecimiento, el 0 es que tampoco se va a achicar, y el 9 rem es que se va a quedar en 9 rem**/
+    text-align: right;
+    padding-right: 2rem;
+}
+.campo__field{
+    flex: 1; /**le damos un factor de crecimiento de 1 va a tomar el resto que dejo el label que es 0 osea toma todo**/
+    border: 1px solid var(--gris);
+}
+.campo__field__textarea{
+    height: 20rem;
+}
+
