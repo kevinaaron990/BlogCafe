@@ -31,6 +31,7 @@ a{
 }
 h1, h2, h3, h4{
     font-family: var(--fuenteHeading);
+    line-height: 1.2;
 }
 h1{
     font-size: 4.8rem;
@@ -134,6 +135,51 @@ img{
     }
 }
 
-.boton-primario{
+.boton--primario{
     background-color: var(--negro);
+}
+.boton--segundario{
+    background-color: var(--primario);
+}
+.cursos{
+    list-style: none;
+}
+.widget-curso{
+    border-bottom: 1px solid var(--gris);
+}
+.widget-curso:last-of-type{ /**esto es para que el ultimo curso siempre no tenga el borde gris **/
+    border:none;
+    margin-bottom: 0;
+}
+.widget-curso__label{
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+.widget-curso__info{
+    font-weight: 400;
+}
+.widget-curso__info, .widget-curso__label{
+    font-size: 2rem;
+}
+/**Footer**/
+.footer{
+    background-color: var(--negro);
+    padding: 3rem 0;
+    margin-top: 4rem;
+}
+
+/**Sobre Nosotros**/
+@media (min-width: 768px){
+    .sobre-nosotros{
+        display: flex;
+        gap: 2rem;
+    }
+    .sobre-nosotros__imagen, .sobre-nosotros__texto{
+        flex-basis: 50%;
+    }
+    .sobre-nosotros{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: 2rem;
+    }
 }
